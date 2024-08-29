@@ -24,6 +24,12 @@ body {
   left: 50%;
 }
 
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
 .editor hr {
   color: #20222a;
   width: 100%;
@@ -44,7 +50,6 @@ body {
 }
 
 .header {
-  cursor: move;
   font-family: -apple-system, sans-serif;
   font-size: 21px;
   font-weight: 450;
@@ -80,4 +85,8 @@ button svg {
 .minimize:hover  {
   background-color: #ffffff10;
   background-clip: border-box;
+}
+
+#draggable {
+  cursor: move;
 }
