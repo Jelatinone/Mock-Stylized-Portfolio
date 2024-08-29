@@ -50,13 +50,14 @@ body {
 }
 
 .header {
+  cursor: grab;
+  text-align: right;
   font-family: -apple-system, sans-serif;
   font-size: 21px;
   font-weight: 450;
   background-color: #121212;
   width: 100%;
-  text-align: right;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .editor button {
@@ -85,8 +86,4 @@ button svg {
 .minimize:hover  {
   background-color: #ffffff10;
   background-clip: border-box;
-}
-
-#draggable {
-  cursor: move;
 }
