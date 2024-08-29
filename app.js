@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(() => {
         parent.style.left = `${initial_left + delta_x}px`;
         parent.style.top = `${initial_top + delta_y}px`;
-        parent.style.zIndex = editors_index_z++;
       });
     };
 
@@ -49,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       initial_top = rect.top;
   
       header.style.cursor = 'grabbing';
+      parent.style.zIndex = editors_index_z++;
   
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
