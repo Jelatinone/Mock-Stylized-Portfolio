@@ -13,10 +13,11 @@ body {
 #editor {
   position: absolute;
   cursor: move;
-  background-color: #1d1e22;
+  background-color: #0d0f19;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
   border-radius: 8px;  
   padding: 2px; 
+  margin: 10px;
 }
 
 #editor-header {
@@ -24,6 +25,20 @@ body {
   display: flex;
   cursor: move;
   margin: 10px;
+}
+
+#viewport {
+  margin: 10px;
+}
+
+#viewport-header {
+  margin: 10px;
+}
+
+#contact {
+  position: fixed;
+  right: 50%;
+  bottom: 10px;
 }
 
 .resizable {
