@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const delta_y = Event.clientY - initial_y;
   
       requestAnimationFrame(() => {
+        parent.style['border-radius'] = '10px'
         parent.style.left = `${initial_left + delta_x}px`;
         parent.style.top = `${initial_top + delta_y}px`;
       });
@@ -64,4 +65,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }  
+
+  const maximizeButtons = document.getElementsByClassName('maximize');
+  for (let index = 0; index < maximizeButtons.length; index++) {
+    maximizeButtons[index].addEventListener('click', () => {
+      const Editor = document.querySelector(`div.editor:nth-of-type(${index + 1})`);
+      if (Editor) {
+        Editor.style.visibility = 'visible';
+        Editor.style.width = '100%'
+        Editor.style.height = '100%'
+        Editor.style.left = '0';
+        Editor.style.top = '0';
+        Editor.style['border-radius'] = '0';
+      }
+    });
+  } 
+
+  const minimizeButtons = document.getElementsByClassName('minimize');
+  for (let index = 0; index < minimizeButtons.length; index++) {
+    minimizeButtons[index].addEventListener('click', () => {
+      const Editor = document.querySelector(`div.editor:nth-of-type(${index + 1})`);
+      if (Editor) {
+        Editor.style.visibility = 'visible';
+        Editor.style.width = '17px'
+        Editor.style.height = '17px'
+        Editor.style['border-radius'] = '10px';
+      }
+    });
+  } 
 });

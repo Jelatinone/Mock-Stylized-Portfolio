@@ -24,21 +24,6 @@ body {
   left: 50%;
 }
 
-#html-editor {
-  left: 85%;
-  top: 15px;
-}
-
-#css-editor {
-  left: 85%;
-  top: 280px;
-}
-
-#js-editor {
-  left: 85%;
-  top: 545px;
-}
-
 .editor hr {
   color: #20222a;
   width: 100%;
@@ -61,7 +46,6 @@ body {
   color: #8e8e8e;
   font-family: monospace;
   font-size: 14px;
-  white-space: pre;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -117,4 +101,23 @@ button svg {
 .minimize:hover  {
   background-color: #ffffff10;
   background-clip: border-box;
+}
+
+#html-editor {
+  right: 15px;
+  top: 15px;
+}
+
+#css-editor {
+  right: 15px;
+  top: 280px;
+}
+
+#js-editor {
+  right: 15px;
+  top: 545px;
+}
+
+#viewport {
+  align-items: center;
 }
