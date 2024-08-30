@@ -20,18 +20,38 @@ function createHypertextEditor() {
 }
 
 function typedEditor(editor, content) {
+  const chunk = 50;
+  const velocity = 50;  
+
   let text = content.innerHTML.replaceAll("    ", "").trimStart();
   let index = 0;
+
+  let simulationDiv = document.createElement('div');
+  simulationDiv.style.visibility = 'hidden';
+  simulationDiv.style.position = 'absolute';
+  document.body.appendChild(simulationDiv);
+
   function writer() {
-    editor.innerHTML += text.charAt(index);
-    index++;
-    setTimeout(writer, 1);
+    if (index < text.length) {
+      const end = Math.min(index + chunk, text.length);
+      simulationDiv.innerHTML = text.slice(0, end);
+      editor.value = simulationDiv.innerHTML;
+      index = end;
+      setTimeout(writer, velocity);
+    }
   }
+
   writer();
+
   editor.addEventListener('input', () => {
     content.innerHTML = editor.value;
-  })  
+  });
+
+  editor.addEventListener('focusout', () => {
+    document.body.removeChild(simulationDiv);
+  });
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let editors_index = 1;
