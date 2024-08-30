@@ -4,23 +4,47 @@
  Cody Washington
 */
 
+/**
+ * 'Creates' a new javascript editor
+ */
+function createJavascriptEditor() {
+  const editor = document.getElementById('js-editor');
+  editor.style.visibility = 'visible';
+}
+
+/**
+ * 'Creates' a new styles editor
+ */
+function createStylesEditor() {
+  const editor = document.getElementById('css-editor');
+  editor.style.visibility = 'visible';
+}
+
+/**
+ * 'Creates' a new hypertext editor
+ */
+function createHyperTextEditor() {
+  const editor = document.getElementById('html-editor');
+  editor.style.visibility = 'visible';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  let editors_index_z = 1;
+  let editors_index = 1;
   for (const header of document.getElementsByClassName('header')) {
     const parent = header.parentElement;
 
     let is_dragging = false;
     let initial_x, initial_y, initial_left, initial_top;
 
-    if(parent.style.zIndex > editors_index_z) {
-      editors_index_z = editors_index_z;
+    if(parent.style.zIndex > editors_index) {
+      editors_index = editors_index;
     }     
   
-    const onMouseMove = (Event) => {
+    const onMouseMove = (event) => {
       if (!is_dragging) return;
   
-      const delta_x = Event.clientX - initial_x;
-      const delta_y = Event.clientY - initial_y;
+      const delta_x = event.clientX - initial_x;
+      const delta_y = event.clientY - initial_y;
   
       requestAnimationFrame(() => {
         parent.style['border-radius'] = '10px'
@@ -49,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       initial_top = bounds.top;
   
       header.style.cursor = 'grabbing';
-      parent.style.zIndex = editors_index_z++;
+      parent.style.zIndex = editors_index++;
   
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
