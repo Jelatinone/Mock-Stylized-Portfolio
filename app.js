@@ -61,9 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let is_dragging = false;
     let initial_x, initial_y, initial_left, initial_top;
 
-    if(parent.style.zIndex > editors_index) {
-      editors_index = editors_index;
-    }     
+    editors_index = Math.max(parent.style.zIndex, editors_index)
   
     const onMouseMove = (event) => {
       if (!is_dragging) return;
