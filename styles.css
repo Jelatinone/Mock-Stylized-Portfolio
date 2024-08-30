@@ -24,6 +24,21 @@ body {
   left: 50%;
 }
 
+#html-editor {
+  left: 85%;
+  top: 15px;
+}
+
+#css-editor {
+  left: 85%;
+  top: 280px;
+}
+
+#js-editor {
+  left: 85%;
+  top: 545px;
+}
+
 .editor hr {
   color: #20222a;
   width: 100%;
@@ -34,8 +49,7 @@ body {
   color: #8e8e8e;
   margin-left: 0.5em;
   height: calc(100% - 45px); 
-  padding: 5px; 
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .content textarea {
@@ -48,7 +62,7 @@ body {
   font-family: monospace;
   font-size: 14px;
   white-space: pre;
-  overflow:hidden;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
