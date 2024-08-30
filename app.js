@@ -30,13 +30,17 @@ function createHypertextEditor() {
 
 
 function typedEditor(editor, content) {
+  let text = content.innerHTML.replaceAll("      ", "").trimStart();
   let index = 0;
   function writer() {
-    editor.innerHTML += content.charAt(index);
+    editor.innerHTML += text.charAt(index);
     index++;
-    setTimeout(writer, 100);
+    setTimeout(writer, 50);
   }
   writer();
+  editor.addEventListener('input', () => {
+    content.innerHTML = editor.value;
+  })  
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -128,19 +132,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-  
+
+  // const htmlViewport = document.querySelector('#viewport > div:nth-child(3)');
+  // const hypertextEditor = document.querySelector('#html-editor > div:nth-child(3) > textarea:nth-child(1)');
+
+  // hypertextEditor.addEventListener('input', () => {
+  //   htmlViewport.innerHTML = hypertextEditor.value;
+  // })
+
+
   typedEditor(
     document.querySelector('#html-editor > div:nth-child(3) > textarea:nth-child(1)'),
-    'Hello World!'
-  )
+    document.querySelector('#viewport > div:nth-child(3)'))
 
   typedEditor(
     document.querySelector('#css-editor > div:nth-child(3) > textarea:nth-child(1)'),
-    'Hello World!'
-  )
+    document.querySelector('#viewport > style:nth-child(2)'))
 
   typedEditor(
     document.querySelector('#js-editor > div:nth-child(3) > textarea:nth-child(1)'),
-    'Hello World!'
-  )
+    document.querySelector('#viewport > script:nth-child(1)'))
 });
