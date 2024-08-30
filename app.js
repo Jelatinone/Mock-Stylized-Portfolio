@@ -23,9 +23,20 @@ function createStylesEditor() {
 /**
  * 'Creates' a new hypertext editor
  */
-function createHyperTextEditor() {
+function createHypertextEditor() {
   const editor = document.getElementById('html-editor');
   editor.style.visibility = 'visible';
+}
+
+
+function typedEditor(editor, content) {
+  let index = 0;
+  function writer() {
+    editor.innerHTML += content.charAt(index);
+    index++;
+    setTimeout(writer, 100);
+  }
+  writer();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -116,5 +127,20 @@ document.addEventListener('DOMContentLoaded', () => {
         Editor.style['border-radius'] = '10px';
       }
     });
-  } 
+  }
+  
+  typedEditor(
+    document.querySelector('#html-editor > div:nth-child(3) > textarea:nth-child(1)'),
+    'Hello World!'
+  )
+
+  typedEditor(
+    document.querySelector('#css-editor > div:nth-child(3) > textarea:nth-child(1)'),
+    'Hello World!'
+  )
+
+  typedEditor(
+    document.querySelector('#js-editor > div:nth-child(3) > textarea:nth-child(1)'),
+    'Hello World!'
+  )
 });
