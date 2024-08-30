@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
       initial_x = Event.clientX;
       initial_y = Event.clientY;
   
-      const rect = header.getBoundingClientRect();
-      initial_left = rect.left;
-      initial_top = rect.top;
+      const bounds = header.getBoundingClientRect();
+      initial_left = bounds.left;
+      initial_top = bounds.top;
   
       header.style.cursor = 'grabbing';
       parent.style.zIndex = editors_index_z++;
@@ -54,4 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
       document.addEventListener('mouseup', onMouseUp);
     });
   }
+
+  const closeButtons = document.getElementsByClassName('close');
+  for (let index = 0; index < closeButtons.length; index++) {
+    closeButtons[index].addEventListener('click', () => {
+      const Editor = document.querySelector(`div.editor:nth-of-type(${index + 1})`);
+      if (Editor) {
+        Editor.style.visibility = 'hidden';
+      }
+    });
+  }  
 });
