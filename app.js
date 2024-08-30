@@ -20,12 +20,12 @@ function createHypertextEditor() {
 }
 
 function typedEditor(editor, content) {
-  let text = content.innerHTML.replaceAll("      ", "").trimStart();
+  let text = content.innerHTML.replaceAll("    ", "").trimStart();
   let index = 0;
   function writer() {
     editor.innerHTML += text.charAt(index);
     index++;
-    setTimeout(writer, 50);
+    setTimeout(writer, 1);
   }
   writer();
   editor.addEventListener('input', () => {
