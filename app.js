@@ -4,30 +4,20 @@
  Cody Washington
 */
 
-/**
- * 'Creates' a new javascript editor
- */
 function createJavascriptEditor() {
   const editor = document.getElementById('js-editor');
   editor.style.visibility = 'visible';
 }
 
-/**
- * 'Creates' a new styles editor
- */
 function createStylesEditor() {
   const editor = document.getElementById('css-editor');
   editor.style.visibility = 'visible';
 }
 
-/**
- * 'Creates' a new hypertext editor
- */
 function createHypertextEditor() {
   const editor = document.getElementById('html-editor');
   editor.style.visibility = 'visible';
 }
-
 
 function typedEditor(editor, content) {
   let text = content.innerHTML.replaceAll("      ", "").trimStart();
@@ -133,22 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // const htmlViewport = document.querySelector('#viewport > div:nth-child(3)');
-  // const hypertextEditor = document.querySelector('#html-editor > div:nth-child(3) > textarea:nth-child(1)');
-
-  // hypertextEditor.addEventListener('input', () => {
-  //   htmlViewport.innerHTML = hypertextEditor.value;
-  // })
-
-
   typedEditor(
     document.querySelector('#html-editor > div:nth-child(3) > textarea:nth-child(1)'),
     document.querySelector('#viewport > div:nth-child(3)'))
-
   typedEditor(
     document.querySelector('#css-editor > div:nth-child(3) > textarea:nth-child(1)'),
     document.querySelector('#viewport > style:nth-child(2)'))
-
   typedEditor(
     document.querySelector('#js-editor > div:nth-child(3) > textarea:nth-child(1)'),
     document.querySelector('#viewport > script:nth-child(1)'))
